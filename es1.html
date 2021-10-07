@@ -3,7 +3,40 @@
     <title>Es 1</title>
   </head>
   <body>
-</body>
-<button onclick="function(){
-    console.log('click')""
+    <button onclick="(function(){
+      console.log('click')})()">cliccami da evento</button>
+      <button onclick="funzioneClick('script')">cliccami da script</button>
+      <button id="btn3">cliccami da listener</button>
+      <script>
+        var a=0;
+        var funzioneClick=function(stringa){
+          console.log("click da script");
+        };
+        var funzioneClickAscoltatore=function(){
+          console.log("click da listenr");
+        };
+        var bottone3=document.getElementById("btn3");
+        bottone3.addEventListener("click", 
+          function(){
+            funzioneClick("listener");
+            if(a%2==0){
+              bottone3.setAttribute("style", "background-color: red");
+              a++;
+            }else{
+              bottone3.setAttribute("style", "background-color: null");
+              a++;
+            }
+            
+          });
+        //funzioneClick;
+
+        //Self declaration and executon
+        //var funzioneClick=(function(){
+        //  console.log("click da script");
+        //})();
+        
+      </script>
+        
+  </body>
 </html>
+
